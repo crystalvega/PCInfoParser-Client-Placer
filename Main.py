@@ -5,11 +5,10 @@ import shutil
 import os
 from win32com.client import Dispatch
 import subprocess
-from Path import resource_path
 
 def create_autostartup(Thisfile: str):
     
-    user_path = os.path.expanduser('~') # Путь к папке пользователя
+    user_path = os.path.expanduser('~')
     
 
     if not os.path.exists(user_path+"\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\PCInfoToExcel Client.lnk"):
@@ -17,7 +16,7 @@ def create_autostartup(Thisfile: str):
 
         target = Thisfile
         
-        Thisfile_name = os.path.basename(Thisfile) # Название файла без пути
+        Thisfile_name = os.path.basename(Thisfile)
         wDir   = Thisfile.replace('\\' + Thisfile_name, "")
         icon   = Thisfile
 
