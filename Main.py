@@ -31,7 +31,9 @@ def create_autostartup(Thisfile: str):
     
         print(f'{Thisfile_name} добавлен в автозагрузку')  
     
-
+def create_datefile(dst):
+    file = open(dst, 'w')
+    file.close
             
 def place_program(zipfile, dst, cfgfile):
     ZIP.unpack(zipfile + '.zip', dst)
@@ -52,6 +54,7 @@ def main():
     dst = 'C:\\Program Files\\ConfigNKU'
     cfgfile = 'client.cfg'
     place_program(zipfile, dst, cfgfile)
+    create_datefile(dst + '\\' + zipfile + '\\Main.exe')
     create_autostartup(dst + '\\' + zipfile + '\\Main.exe')
     subprocess.run([dst + '\\' + zipfile + '\\Main.exe'])
  
